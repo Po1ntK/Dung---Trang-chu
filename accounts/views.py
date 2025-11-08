@@ -42,7 +42,7 @@ def login_view(request):
             if user.is_staff:  # nếu là admin
                 return redirect('list_courts')  # chuyển đến trang quản lý sân
             else:
-                return redirect('customer_dashboard')  # chuyển đến trang khách hàng
+                return redirect('home')  # chuyển đến trang khách hàng
         else:
             messages.error(request, 'Sai tài khoản hoặc mật khẩu')
     return render(request, 'accounts/login.html')
@@ -58,4 +58,4 @@ def logout_view(request):
 def dashboard_view(request):
     if request.user.is_staff or request.user.is_superuser:
         return redirect('/admin/')
-    return render(request, 'accounts/customer_dashboard.html', {'user': request.user})
+    return render(request, 'home/home.html', {'user': request.user})

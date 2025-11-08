@@ -8,6 +8,11 @@ from decimal import Decimal
 from .models import Bookings
 from courts.models import Court
 from accounts.models import Users
+from django.shortcuts import render
+
+def admin_booking_list(request):
+    return render(request, 'bookings/admin_booking_list.html')
+
 
 @staff_member_required  # chỉ admin hoặc staff có thể truy cập
 def admin_booking_list(request):
@@ -16,7 +21,7 @@ def admin_booking_list(request):
 
 @login_required
 def customer_booking(request):
-    courts = Courts.objects.all()
+    courts = Court.objects.all()
 
     if request.method == 'POST':
         court_id = request.POST.get('court')
