@@ -42,7 +42,7 @@ def login_view(request):
             if user.is_staff:  # nếu là admin
                 return redirect('list_courts')  # chuyển đến trang quản lý sân
             else:
-                return redirect('home')  # chuyển đến trang khách hàng
+                return redirect('home_page')  # chuyển đến trang khách hàng
         else:
             messages.error(request, 'Sai tài khoản hoặc mật khẩu')
     return render(request, 'accounts/login.html')
