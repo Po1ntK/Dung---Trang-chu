@@ -124,26 +124,28 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
-import os
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static'),
-]
-DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-LOGIN_URL = '/accounts/login/'
-LOGIN_REDIRECT_URL = '/accounts/dashboard/'
-LOGOUT_REDIRECT_URL = '/accounts/login/'
-
-# Nếu có custom backend (email/phone login)
-AUTHENTICATION_BACKENDS = [
-    'accounts.customer_backend.CustomerBackend',  # đăng nhập bằng email/sđt
-    'django.contrib.auth.backends.ModelBackend',  # cho Django admin
-]
-
+#import os
+#STATICFILES_DIRS = [
+#   os.path.join(BASE_DIR, 'static'),
+#]
 #DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 #LOGIN_URL = '/accounts/login/'
 #LOGIN_REDIRECT_URL = '/accounts/dashboard/'
 #LOGOUT_REDIRECT_URL = '/accounts/login/'
-#BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-#STATIC_URL = '/static/'
-#STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+# Nếu có custom backend (email/phone login)
+#AUTHENTICATION_BACKENDS = [
+#   'accounts.customer_backend.CustomerBackend',  # đăng nhập bằng email/sđt
+#   'django.contrib.auth.backends.ModelBackend',  # cho Django admin
+#]
+
+
+
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+LOGIN_URL = '/accounts/login/'
+LOGIN_REDIRECT_URL = '/accounts/dashboard/'
+LOGOUT_REDIRECT_URL = '/accounts/login/'
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+STATIC_URL = '/static/'
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
